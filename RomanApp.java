@@ -2,32 +2,99 @@ package src;
 
 public class RomanApp {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public static String numberConvert(int number) {
+		
+		return "nothing";
 	}
 
-	public static String oneDigitConvert(int i) {
-		if (i == 1)
-			return "I";
-		if (i == 2)
-			return "II";
-		if (i == 3)
-			return "III";
-		if (i == 4)
-			return "IV";
-		if (i == 5)
-			return "V";
-		if (i == 6)
-			return "VI";
-		if (i == 7)
-			return "VII";
-		if (i == 8)
-			return "VIII";
-		if (i == 9)
-			return "IX";
+	public static int findLength(Integer number) {
+		return number.toString().length();
+	}
+	
+	public static int isolateDigit(int number, int position) {
+		double doublePosition = (double) position;
+		double doubleNumber = (number / Math.pow(10, doublePosition-1))%10;
+		int x = (int) doubleNumber;
+		return x;
+		
+	}
+
+	public static String oneDigitConvert(int digit, int position) {
+		String romanDigit = "";
+		String one = "I";
+		String five = "V";
+		String ten = "X";
+
+		if (position < 10) {
+			if (digit == 4)
+				return romanDigit + one + five;
+			if (digit == 9)
+				return romanDigit + one + ten;
+			if (digit == 5)
+				return romanDigit + five;
+			if (digit > 5 && digit < 10) {
+				romanDigit += five;
+				for (int i = 0; i < (digit - 5); i++) {
+					romanDigit += one;
+				}
+				return romanDigit;
+			}
+			if (digit == 10)
+				return romanDigit;
+			else
+				for (int i = 0; i < digit; i++) {
+					romanDigit += "I";
+				}
+			return romanDigit;
+		}
+		return romanDigit;
+	}
+
+	public static String oneDigitConvert(int digit) {
+		String romanDigit = "";
+
+		if (digit == 4)
+			return romanDigit + "IV";
+		if (digit == 9)
+			return romanDigit + "IX";
+		if (digit == 5)
+			return romanDigit + "V";
+		if (digit > 5 && digit < 10) {
+			romanDigit += "V";
+			for (int i = 0; i < (digit - 5); i++) {
+				romanDigit += "I";
+			}
+			return romanDigit;
+		}
+		if (digit >= 10)
+			return romanDigit;
 		else
-			return "nope";
+			for (int i = 0; i < digit; i++) {
+				romanDigit += "I";
+			}
+
+		return romanDigit;
+
+		// if (digit == 1)
+		// return romanDigit + "I";
+		// if (digit == 2)
+		// return romanDigit + "II";
+		// if (digit == 3)
+		// return romanDigit + "III";
+		// if (digit == 4)
+		// return romanDigit + "IV";
+		// if (digit == 5)
+		// return romanDigit + "V";
+		// if (digit == 6)
+		// return romanDigit + "VI";
+		// if (digit == 7)
+		// return romanDigit + "VII";
+		// if (digit == 8)
+		// return romanDigit + "VIII";
+		// if (digit == 9)
+		// return romanDigit + "IX";
+		// else
+		// return romanDigit;
 	}
 
 }

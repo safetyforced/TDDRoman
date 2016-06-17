@@ -35,5 +35,34 @@ public class RomanAppTest {
 	public void test6() {
 		assertEquals("VI", RomanApp.oneDigitConvert(6));
 	}
+	
+	@Test
+	public void test11() {
+		assertEquals(4, RomanApp.findLength(6293));
+	}
 
+	@Test
+	public void test12() {
+		assertEquals(9, RomanApp.findLength(865656987));
+	}
+	
+	@Test
+	public void test13() {
+		assertEquals(5, RomanApp.findLength(92873));
+	}
+	
+	@Test
+	public void test21() {
+		assertEquals(9, RomanApp.isolateDigit(72963, 3));
+	}
+	
+	@Test
+	public void test22() {
+		assertEquals(7, RomanApp.isolateDigit(74037, 1));
+	}
+	
+	@Test
+	public void test23() {
+		assertEquals(4, RomanApp.isolateDigit(483772, 6));
+	}
 }
