@@ -3,8 +3,18 @@ package src;
 public class RomanApp {
 
 	public static String numberConvert(int number) {
+		String romanNumber = "";
+		String oneDigit = "";
+		int length = findLength(number);
+		int singleDigit;
 		
-		return "nothing";
+		for (int i = length; i >= 1; i--) {
+			singleDigit = isolateDigit(number, i);
+			oneDigit = oneDigitConvert(singleDigit, i);
+			romanNumber += oneDigit;
+		}
+		
+		return romanNumber;
 	}
 
 	public static int findLength(Integer number) {
@@ -21,11 +31,29 @@ public class RomanApp {
 
 	public static String oneDigitConvert(int digit, int position) {
 		String romanDigit = "";
-		String one = "I";
-		String five = "V";
-		String ten = "X";
+		String one = "";
+		String five = "";
+		String ten = "";
+		
+		if (position == 1) {
+		one = "I";
+		five = "V";
+		ten = "X";
+		}
+		
+		if (position == 2) {
+			one = "X";
+			five = "L";
+			ten = "C";
+			}
+		
+		if (position == 3) {
+			one = "C";
+			five = "D";
+			ten = "M";
+			}
 
-		if (position < 10) {
+
 			if (digit == 4)
 				return romanDigit + one + five;
 			if (digit == 9)
@@ -43,11 +71,10 @@ public class RomanApp {
 				return romanDigit;
 			else
 				for (int i = 0; i < digit; i++) {
-					romanDigit += "I";
+					romanDigit += one;
 				}
 			return romanDigit;
-		}
-		return romanDigit;
+
 	}
 
 	public static String oneDigitConvert(int digit) {

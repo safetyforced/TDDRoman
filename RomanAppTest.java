@@ -65,4 +65,9 @@ public class RomanAppTest {
 	public void test23() {
 		assertEquals(4, RomanApp.isolateDigit(483772, 6));
 	}
+	
+	@Test
+	public void test31() {
+		assertEquals("DCCVII", RomanApp.numberConvert(707));
+	}
 }
